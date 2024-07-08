@@ -1,0 +1,265 @@
+{
+	"info": {
+		"_postman_id": "054f153a-aaa3-4a47-8397-1e90a4066b58",
+		"name": "NorthLadder",
+		"description": "# 🚀 Get started here\n\nThis template guides you through CRUD operations (GET, POST, PUT, DELETE), variables, and tests.\n\n## 🔖 **How to use this template**\n\n#### **Step 1: Send requests**\n\nRESTful APIs allow you to perform CRUD operations using the POST, GET, PUT, and DELETE HTTP methods.\n\nThis collection contains each of these [request](https://learning.postman.com/docs/sending-requests/requests/) types. Open each request and click \"Send\" to see what happens.\n\n#### **Step 2: View responses**\n\nObserve the response tab for status code (200 OK), response time, and size.\n\n#### **Step 3: Send new Body data**\n\nUpdate or add new data in \"Body\" in the POST request. Typically, Body data is also used in PUT request.\n\n```\n{\n    \"name\": \"Add your name in the body\"\n}\n\n ```\n\n#### **Step 4: Update the variable**\n\nVariables enable you to store and reuse values in Postman. We have created a [variable](https://learning.postman.com/docs/sending-requests/variables/) called `base_url` with the sample request [https://postman-api-learner.glitch.me](https://postman-api-learner.glitch.me). Replace it with your API endpoint to customize this collection.\n\n#### **Step 5: Add tests in the \"Tests\" tab**\n\nTests help you confirm that your API is working as expected. You can write test scripts in JavaScript and view the output in the \"Test Results\" tab.\n\n<img src=\"https://content.pstmn.io/b5f280a7-4b09-48ec-857f-0a7ed99d7ef8/U2NyZWVuc2hvdCAyMDIzLTAzLTI3IGF0IDkuNDcuMjggUE0ucG5n\">\n\n## 💪 Pro tips\n\n- Use folders to group related requests and organize the collection.\n- Add more [scripts](https://learning.postman.com/docs/writing-scripts/intro-to-scripts/) in \"Tests\" to verify if the API works as expected and execute workflows.\n    \n\n## 💡Related templates\n\n[API testing basics](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9a37a28-055b-49cd-8c7e-97494a21eb54&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  \n[API documentation](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9c28f47-1253-44af-a2f3-20dce4da1f18&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  \n[Authorization methods](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=31a9a6ed-4cdf-4ced-984c-d12c9aec1c27&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "15555706",
+		"_collection_link": "https://red-astronaut-97272.postman.co/workspace/My-Workspace~e124c9e5-0729-44dc-8881-82d6024975fa/collection/15555706-054f153a-aaa3-4a47-8397-1e90a4066b58?action=share&source=collection_link&creator=15555706"
+	},
+	"item": [
+		{
+			"name": "Create new event",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful POST request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"eventName\": \"Birthday Party\", // Name of the event\n    // \"eventDate\": \"Date\", // Date of the event\n    \"organizer\": \"Mr. Tony Stark\", // Organizer's name\n    // \"email\": \"string\", // Email of the organizer\n    \"phone\": \"9891255960\", // Phone number of the organizer\n    \"location\": {\n        \"street\": \"north street\", // Venue street address\n        \"city\": \"New York\", // Venue city\n        \"state\": \"US\", // Venue state\n        \"zip\": \"20001\" // Venue zip code\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{url}}/task",
+				"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `201 Created` response code.\n\npayload\n\n```\n{\ntitle:string\ndescription: string\ndueDate: string\ncreatedBy: string\nassignedTo: string\ncategory: string\nstatus: string \n}\n\n ```\n\nResponse\n\n```\n{\ntitle: string,\ndescription: string,\nId: string,\nuserId: string\ndueDate: string\ncreatedBy: string | null\nassignedTo: string | null\ncategory: string | null\nstatus: string | null\n}\n ```\n\nResponse code\n\nsuccess - 201\n\nerror - 500"
+			},
+			"response": []
+		},
+		{
+			"name": "get a event by id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{url}}/task/dffgg",
+				"description": "Type : GET\n\nparam: taskid\n\nThis request is used to get a single task by task id. Append id at the end of url\n\nResponse Structure:\n\n``` javascript\n{\nId: string,\nuserId: string\ndueDate: string\ncreatedBy: string | null\nassignedTo: string | null\ncategory: string | null\nstatus: string | null\n}\n\n ```"
+			},
+			"response": []
+		},
+		{
+			"name": "update event by id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"eventDate\": \"2024-07-08T10:33:20.566Z\", // Date of the event\n    \"email\": \"satyamshay@gmail.com\", // Email of the organizer\n    \"location\": {\n        \"street\": \"North Land\", // Venue street address\n        \"city\": \"Texas\", // Venue city\n        \"state\": \"US\", // Venue state\n        \"zip\": \"800001\" // Venue zip code\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{url}}/task/hlsA0g",
+				"description": "Type: Put\n\nparmas: taskId\n\nTo update a task by id.\n\npayload : Following field can be updated\n\n``` javascript\n{\ndueDate: string\nassignedTo: string \ncategory: string\nstatus: string\ntitle: sting\ndescription: stirng\n}\n\n ```\n\nResponse\n\n``` json\n{\nId: string,\nuserId: string\ndueDate: string\ncreatedBy: string | null\nassignedTo: string | null\ncategory: string | null\nstatus: 'pending' | 'completed'\nisActive:boolena\n}\n\n ```\n\nResponse Code\n\non Sucess - 200\n\non error - 500"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete event by id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful DELETE request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 202, 204]);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{url}}/task/Ll3R90",
+				"description": "Type: delete\n\nparmas: taskId\n\nThis is a DELETE request, and it is used to delete data that was previously created via a POST request. You typically identify the entity being updated by including an identifier in the URL (eg. `taskId=1`).\n\nA successful DELETE request typically returns a `200 OK`, 500 `Accepted`,\n\nReturn deleted task\n\n```\n {\n            \"id\": \"string\",\n            \"userId\": string |null,\n            \"dueDate\": string | null,\n            \"createdAt\": string,\n            \"createdBy\": string |null,\n            \"assignedTo\": string | null,\n            \"category\": string | null,\n            \"status\": \"pending\" | \"completed\",\n            \"isActive\": boolean,\n            \"title\": string,\n            \"description\": string\n        }\n ```"
+			},
+			"response": []
+		},
+		{
+			"name": "list event",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/task/?page=1&limit=30",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"task",
+						""
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "30"
+						}
+					]
+				},
+				"description": "This is a GET request and it is used to \"get\" task from an endpoint.\n\nyou can use query parameters to help specify the resource you want data on (e.g., in this request, we have page`=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, JSON data.\n\nResponse\n\n``` javascript\n[\n{\nResponse Structure:\nId: string,\nuserId: string\ndueDate: string\ncreatedBy: string | null\nassignedTo: string | null\ncategory: string | null\nstatus: string | null\n}\n]\n\n ```"
+			},
+			"response": []
+		},
+		{
+			"name": "event by event name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/task/?eventName=apple",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"task",
+						""
+					],
+					"query": [
+						{
+							"key": "eventName",
+							"value": "apple"
+						}
+					]
+				},
+				"description": "Type: GET\n\nQuery:\n\n- page : number - page number\n- limit : number - limit to display data in one page\n- assignedTo : Query string - user name, get task of assigned user\n- categoryName: Query string - category name, get task by category name\n    \n\nThis endpoint makes an HTTP GET request to retrieve tasks assigned to a specific user. The request should include a query parameter \"assignedTo\" with the value of the user's name.\n\nResponse\n\n```\n{\n    \"code\": 200,\n    \"error\": null,\n    \"message\": \"Success\",\n    \"data\": {\n        \"tasks\": [\n            {\n                \"id\": \"PooICv\",\n                \"userId\": null,\n                \"dueDate\": null,\n                \"createdAt\": \"2024-04-08T00:36:30.739Z\",\n                \"createdBy\": \"maiyra\",\n                \"assignedTo\": \"kumar\",\n                \"category\": \"todo\",\n                \"status\": \"pending\",\n                \"isActive\": true,\n                \"title\": \"two\",\n                \"description\": \"this is description one\"\n            }\n        ],\n        \"count\": {\n            \"total\": 5,\n            \"count\": 1,\n            \"page\": 1,\n            \"skip\": 0,\n            \"limit\": 30\n        }\n    }\n}\n\n ```"
+			},
+			"response": []
+		},
+		{
+			"name": "event by organizer name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/task/?organizer=Mr. Tony Stark",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"task",
+						""
+					],
+					"query": [
+						{
+							"key": "organizer",
+							"value": "Mr. Tony Stark"
+						}
+					]
+				},
+				"description": "Type: GET\n\nQuery:\n\n- page : number - page number\n- limit : number - limit to display data in one page\n- assignedTo : Query string - user name, get task of assigned user\n- categoryName: Query string - category name, get task by category name\n    \n\nThis endpoint makes an HTTP GET request to retrieve tasks assigned to a specific user. The request should include a query parameter \"assignedTo\" with the value of the user's name.\n\nResponse\n\n```\n{\n    \"code\": 200,\n    \"error\": null,\n    \"message\": \"Success\",\n    \"data\": {\n        \"tasks\": [\n            {\n                \"id\": \"PooICv\",\n                \"userId\": null,\n                \"dueDate\": null,\n                \"createdAt\": \"2024-04-08T00:36:30.739Z\",\n                \"createdBy\": \"maiyra\",\n                \"assignedTo\": \"kumar\",\n                \"category\": \"todo\",\n                \"status\": \"pending\",\n                \"isActive\": true,\n                \"title\": \"two\",\n                \"description\": \"this is description one\"\n            }\n        ],\n        \"count\": {\n            \"total\": 5,\n            \"count\": 1,\n            \"page\": 1,\n            \"skip\": 0,\n            \"limit\": 30\n        }\n    }\n}\n ```"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "id",
+			"value": "1"
+		},
+		{
+			"key": "base_url",
+			"value": "https://postman-rest-api-learner.glitch.me/"
+		},
+		{
+			"key": "url",
+			"value": "localhost:3000",
+			"type": "string"
+		}
+	]
+}
