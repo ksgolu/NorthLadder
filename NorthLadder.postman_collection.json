@@ -30,7 +30,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"eventName\": \"Birthday Party\", // Name of the event\n    // \"eventDate\": \"Date\", // Date of the event\n    \"organizer\": \"Mr. Tony Stark\", // Organizer's name\n    // \"email\": \"string\", // Email of the organizer\n    \"phone\": \"9891255960\", // Phone number of the organizer\n    \"location\": {\n        \"street\": \"north street\", // Venue street address\n        \"city\": \"New York\", // Venue city\n        \"state\": \"US\", // Venue state\n        \"zip\": \"20001\" // Venue zip code\n    }\n}",
+					"raw": "{\n    \"eventName\": \"Birthday Party\", // Name of the event\n    // \"eventDate\": \"Date\", // Date of the event\n    \"organizer\": \"Mr. tony\", // Organizer's name\n    // \"email\": \"string\", // Email of the organizer\n    \"phone\": \"9891255960\", // Phone number of the organizer\n    \"location\": {\n        \"street\": \"north street\", // Venue street address\n        \"city\": \"New York\", // Venue city\n        \"state\": \"US\", // Venue state\n        \"zip\": \"20001\" // Venue zip code\n    }\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -258,7 +258,7 @@
 		},
 		{
 			"key": "url",
-			"value": "https://north-ladder-fei1lxo74-ksgolus-projects.vercel.app",
+			"value": "https://northladder-l1e1.onrender.com",
 			"type": "string"
 		}
 	]

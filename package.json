@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "test": "jest --watch",
-    "start": "node dist/src/index.js",
+    "start": "node dist/index.js",
     "build": "npx tsc",
     "local": "ts-node-dev --respawn  src/index.ts"
   },
