@@ -37,7 +37,7 @@
 						}
 					}
 				},
-				"url": "{{url}}/task",
+				"url": "{{url}}/event",
 				"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `201 Created` response code.\n\npayload\n\n```\n{\ntitle:string\ndescription: string\ndueDate: string\ncreatedBy: string\nassignedTo: string\ncategory: string\nstatus: string \n}\n\n ```\n\nResponse\n\n```\n{\ntitle: string,\ndescription: string,\nId: string,\nuserId: string\ndueDate: string\ncreatedBy: string | null\nassignedTo: string | null\ncategory: string | null\nstatus: string | null\n}\n ```\n\nResponse code\n\nsuccess - 201\n\nerror - 500"
 			},
 			"response": []
@@ -61,7 +61,7 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": "{{url}}/task/dffgg",
+				"url": "{{url}}/event/dffgg",
 				"description": "Type : GET\n\nparam: taskid\n\nThis request is used to get a single task by task id. Append id at the end of url\n\nResponse Structure:\n\n``` javascript\n{\nId: string,\nuserId: string\ndueDate: string\ncreatedBy: string | null\nassignedTo: string | null\ncategory: string | null\nstatus: string | null\n}\n\n ```"
 			},
 			"response": []
@@ -94,7 +94,7 @@
 						}
 					}
 				},
-				"url": "{{url}}/task/hlsA0g",
+				"url": "{{url}}/event/hlsA0g",
 				"description": "Type: Put\n\nparmas: taskId\n\nTo update a task by id.\n\npayload : Following field can be updated\n\n``` javascript\n{\ndueDate: string\nassignedTo: string \ncategory: string\nstatus: string\ntitle: sting\ndescription: stirng\n}\n\n ```\n\nResponse\n\n``` json\n{\nId: string,\nuserId: string\ndueDate: string\ncreatedBy: string | null\nassignedTo: string | null\ncategory: string | null\nstatus: 'pending' | 'completed'\nisActive:boolena\n}\n\n ```\n\nResponse Code\n\non Sucess - 200\n\non error - 500"
 			},
 			"response": []
@@ -128,7 +128,7 @@
 						}
 					}
 				},
-				"url": "{{url}}/task/Ll3R90",
+				"url": "{{url}}/event/Ll3R90",
 				"description": "Type: delete\n\nparmas: taskId\n\nThis is a DELETE request, and it is used to delete data that was previously created via a POST request. You typically identify the entity being updated by including an identifier in the URL (eg. `taskId=1`).\n\nA successful DELETE request typically returns a `200 OK`, 500 `Accepted`,\n\nReturn deleted task\n\n```\n {\n            \"id\": \"string\",\n            \"userId\": string |null,\n            \"dueDate\": string | null,\n            \"createdAt\": string,\n            \"createdBy\": string |null,\n            \"assignedTo\": string | null,\n            \"category\": string | null,\n            \"status\": \"pending\" | \"completed\",\n            \"isActive\": boolean,\n            \"title\": string,\n            \"description\": string\n        }\n ```"
 			},
 			"response": []
@@ -153,12 +153,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{url}}/task/?page=1&limit=30",
+					"raw": "{{url}}/event/?page=1&limit=30",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
-						"task",
+						"event",
 						""
 					],
 					"query": [
@@ -182,12 +182,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{url}}/task/?eventName=apple",
+					"raw": "{{url}}/event/?eventName=apple",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
-						"task",
+						"event",
 						""
 					],
 					"query": [
@@ -207,12 +207,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{url}}/task/?organizer=Mr. Tony Stark",
+					"raw": "{{url}}/event/?organizer=Mr. Tony Stark",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
-						"task",
+						"event",
 						""
 					],
 					"query": [
@@ -258,7 +258,7 @@
 		},
 		{
 			"key": "url",
-			"value": "localhost:3000",
+			"value": "https://north-ladder-fei1lxo74-ksgolus-projects.vercel.app",
 			"type": "string"
 		}
 	]
